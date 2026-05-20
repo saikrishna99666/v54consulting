@@ -115,6 +115,21 @@
                     </div>
                 </div>
 
+                {{-- Privacy Policy and Terms & Conditions --}}
+                <hr>
+                <h4>Legal & Policies</h4>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label>Privacy Policy</label>
+                        <textarea id="privacy_policy" name="privacy_policy" class="form-control" rows="10">{{ old('privacy_policy', $setting->privacy_policy ?? '') }}</textarea>
+                    </div>
+
+                    <div class="col-md-12 form-group">
+                        <label>Terms & Conditions</label>
+                        <textarea id="terms_conditions" name="terms_conditions" class="form-control" rows="10">{{ old('terms_conditions', $setting->terms_conditions ?? '') }}</textarea>
+                    </div>
+                </div>
+
                 {{-- SMTP Settings --}}
                 <hr>
                 <h4>SMTP Configurations</h4>
@@ -157,7 +172,8 @@
 <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script>
     $(document).ready(function() {
-        // CKEditor removed for address to prevent unwanted <p> tags
+        CKEDITOR.replace('privacy_policy');
+        CKEDITOR.replace('terms_conditions');
     });
 </script>
 @stop

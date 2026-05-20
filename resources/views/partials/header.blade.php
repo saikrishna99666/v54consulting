@@ -3,6 +3,20 @@
     header#header-sticky {
         background-color: #f7f7f7;
     }
+
+    .header-main .main-menu ul li {
+        margin-inline-end: 20px !important;
+    }
+
+    @media (max-width: 1500px) {
+        .header-main .main-menu ul li {
+            margin-inline-end: 12px !important;
+        }
+
+        .header-main .main-menu ul li a {
+            font-size: 14px !important;
+        }
+    }
 </style>
 <div class="header-top-section">
     <div class="container-fluid">
@@ -15,8 +29,7 @@
                         @php
                             $headPhone = explode('/', $headOffice->phone)[0];
                         @endphp
-                        <a
-                            href="tel:{{ trim($headPhone) }}">{{ trim($headPhone) }}</a>
+                        <a href="tel:{{ trim($headPhone) }}">{{ trim($headPhone) }}</a>
                     </li>
                     <li>
                         <i class="fa-solid fa-envelope"></i>
@@ -83,8 +96,7 @@
                                 <i class="fal fa-map-marker-alt"></i>
                             </div>
                             <div class="offcanvas__contact-text">
-                                <a target="_blank"
-                                    href="#">{{ strip_tags($headOffice->address) }}</a>
+                                <a target="_blank" href="#">{{ strip_tags($headOffice->address) }}</a>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
@@ -103,8 +115,7 @@
                                 <i class="fal fa-clock"></i>
                             </div>
                             <div class="offcanvas__contact-text">
-                                <a target="_blank"
-                                    href="#">{{ $headOffice->operating_hours }}</a>
+                                <a target="_blank" href="#">{{ $headOffice->operating_hours }}</a>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
@@ -115,8 +126,7 @@
                                 @php
                                     $headPhone = explode('/', $headOffice->phone)[0];
                                 @endphp
-                                <a
-                                    href="tel:{{ trim($headPhone) }}">{{ trim($headPhone) }}</a>
+                                <a href="tel:{{ trim($headPhone) }}">{{ trim($headPhone) }}</a>
                             </div>
                         </li>
                     </ul>
@@ -169,6 +179,9 @@
                                     <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
                                         <a href="{{ route('about') }}">About Us</a>
                                     </li>
+                                    <li class="{{ request()->routeIs('appointment.index') ? 'active' : '' }}">
+                                        <a href="{{ route('appointment.index') }}">Book Appointment</a>
+                                    </li>
                                     <li class="has-dropdown {{ request()->is('services*') ? 'active' : '' }}">
                                         <a href="{{ route('services') }}">Services <i
                                                 class="fa-solid fa-angle-down ms-1" style="font-size: 12px;"></i></a>
@@ -205,11 +218,13 @@
                 </div>
                 <div class="header-right d-flex align-items-center mt-0">
                     <div class="header-call-item">
-
                         <a href="{{ route('contact') }}" class="theme-btn">
                             Contact Us
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
+                    </div>
+                    <div class="sidebar__toggle d-xl-none d-block">
+                        <i class="fa-solid fa-bars"></i>
                     </div>
                 </div>
             </div>

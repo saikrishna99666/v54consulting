@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             SubscriberSeeder::class,
             BranchSeeder::class,
             SeoSettingSeeder::class,
+            TestimonialSeeder::class,
         ]);
     }
 }

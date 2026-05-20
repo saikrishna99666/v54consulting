@@ -58,11 +58,11 @@
     @stack('styles')
     <style>
         .preloader-logo {
-            max-width: 160px;
+            max-width: 60px;
             height: auto;
             border-radius: 50%;
             animation: preloaderPulse 1.8s ease-in-out infinite;
-            box-shadow: 0 10px 25px rgba(0, 72, 180, 0.15);
+            box-shadow: 0 6px 15px rgba(0, 72, 180, 0.12);
         }
 
         @keyframes preloaderPulse {

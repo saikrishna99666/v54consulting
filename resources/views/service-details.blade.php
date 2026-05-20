@@ -224,9 +224,12 @@
                             </div>
                             <h4 class="mb-3" style="font-weight: 700;">Contact us for personalized guidance.</h4>
                             <p class="mb-4" style="color: var(--text); font-size: 15px;">Our expert consultants are ready to assist you right now.</p>
+                            @php
+                                $headPhone = explode('/', ($headOffice->phone ?? $siteSettings->phone_number))[0];
+                            @endphp
                             <div class="phone-number mb-4">
                                 <h3 style="font-size: 28px; font-weight: 800;">
-                                    <a href="tel:{{ $siteSettings->phone_number }}" style="color: var(--header);">{{ $siteSettings->phone_number }}</a>
+                                    <a href="tel:{{ trim($headPhone) }}" style="color: var(--header);">{{ trim($headPhone) }}</a>
                                 </h3>
                             </div>
                             <a href="{{ url('/contact') }}" class="theme-btn w-100" style="display: block; text-align: center;">

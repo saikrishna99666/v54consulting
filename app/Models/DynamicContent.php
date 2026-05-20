@@ -42,5 +42,7 @@ class DynamicContent extends Model
         'preloader_image',
         'breadcrumb_image',
         'youtube_link',
+        'privacy_policy',
+        'terms_conditions',
     ];
 }

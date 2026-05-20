@@ -11,6 +11,7 @@ use App\Models\Achievement;
 use App\Models\Service;
 use App\Models\WhyChooseUs;
 use App\Models\Blog;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -34,7 +35,9 @@ class HomeController extends Controller
             ->take(3)
             ->get();
         
-        return view('index', compact('carousels', 'homeFaqs', 'achievements', 'services', 'whyChooseUs', 'studyDestinations', 'latestBlogs'));
+        $testimonials = Testimonial::where('status', 1)->get();
+        
+        return view('index', compact('carousels', 'homeFaqs', 'achievements', 'services', 'whyChooseUs', 'studyDestinations', 'latestBlogs', 'testimonials'));
     }
 
     public function faq()

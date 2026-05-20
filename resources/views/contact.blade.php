@@ -2,6 +2,192 @@
 
 @section('title', 'Contact Us – Immigration & Visa Consulting')
 
+@push('styles')
+<style>
+    /* Premium Contact Info Section Styles */
+    .contact-us-section-3 {
+        background: radial-gradient(circle at 10% 20%, rgba(248, 250, 252, 1) 0%, rgba(241, 245, 249, 1) 90%) !important;
+        padding: 90px 0 !important;
+        font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item {
+        background: #ffffff !important;
+        border-radius: 24px !important;
+        padding: 35px 30px !important;
+        box-shadow: 0 15px 35px rgba(8, 24, 43, 0.03) !important;
+        border: 1px solid rgba(226, 28, 37, 0.05) !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 4px !important;
+        background: #e21c25 !important;
+        transform: scaleX(0) !important;
+        transform-origin: left !important;
+        transition: transform 0.4s ease !important;
+        z-index: 10 !important;
+        display: block !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 25px 50px rgba(8, 24, 43, 0.07) !important;
+        border-color: rgba(226, 28, 37, 0.15) !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item:hover::before {
+        transform: scaleX(1) !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item .icon {
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 16px !important;
+        background: linear-gradient(135deg, rgba(226, 28, 37, 0.08) 0%, rgba(226, 28, 37, 0.02) 100%) !important;
+        border: 1px solid rgba(226, 28, 37, 0.15) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #e21c25 !important;
+        font-size: 22px !important;
+        flex-shrink: 0 !important;
+        transition: all 0.4s ease !important;
+        position: relative !important;
+    }
+
+    /* Completely neutralize any weird pseudo elements/images from theme stylesheet on .icon wrapper */
+    .contact-us-section-3 .contact-icon-item .icon::before,
+    .contact-us-section-3 .contact-icon-item .icon::after {
+        content: none !important;
+        display: none !important;
+        background: none !important;
+        background-image: none !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item:hover .icon {
+        background: #e21c25 !important;
+        color: #ffffff !important;
+        border-color: #e21c25 !important;
+        transform: scale(1.05) rotate(5deg) !important;
+        box-shadow: 0 10px 20px rgba(226, 28, 37, 0.25) !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item .content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item .content p {
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.8px !important;
+        color: #64748b !important;
+        margin: 0 !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item .content h6 {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: #08182b !important;
+        margin: 0 !important;
+        line-height: 1.6 !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item .content h6 a {
+        color: #08182b !important;
+        text-decoration: none !important;
+        transition: color 0.3s ease !important;
+        display: inline-block !important;
+        margin-bottom: 2px !important;
+    }
+
+    .contact-us-section-3 .contact-icon-item .content h6 a:hover {
+        color: #e21c25 !important;
+    }
+
+    /* Message Form styling modern updates */
+    .contact-section-3 {
+        background: #ffffff !important;
+        padding-top: 50px !important;
+    }
+
+    .contact-from-wrapper {
+        background: radial-gradient(circle at 10% 20%, rgba(248, 250, 252, 0.8) 0%, rgba(255, 255, 255, 1) 90%) !important;
+        border-radius: 30px !important;
+        padding: 60px 50px !important;
+        border: 1px solid rgba(8, 24, 43, 0.04) !important;
+        box-shadow: 0 30px 60px rgba(8, 24, 43, 0.03) !important;
+    }
+
+    .contact-from-wrapper h5 {
+        font-size: 32px !important;
+        font-weight: 800 !important;
+        color: #08182b !important;
+        text-transform: uppercase !important;
+        letter-spacing: -0.5px !important;
+    }
+
+    .contact-from-wrapper p {
+        font-size: 16px !important;
+        color: #64748b !important;
+        max-width: 650px !important;
+        margin: 10px auto 40px !important;
+    }
+
+    .form-clt {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    .form-clt span {
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        color: #08182b !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .form-clt input, .form-clt textarea {
+        width: 100% !important;
+        background: #f8fafc !important;
+        border: 2px solid #f1f5f9 !important;
+        border-radius: 12px !important;
+        padding: 16px 20px !important;
+        font-size: 15px !important;
+        color: #08182b !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+        outline: none !important;
+    }
+
+    .form-clt input:focus, .form-clt textarea:focus {
+        border-color: rgba(226, 28, 37, 0.3) !important;
+        background: #ffffff !important;
+        box-shadow: 0 0 15px rgba(226, 28, 37, 0.08) !important;
+    }
+
+    .form-clt textarea {
+        height: 180px !important;
+        resize: none !important;
+    }
+</style>
+@endpush
+
 @section('content')
 <!-- Breadcrumb-Wrapper Section Start -->
 @php

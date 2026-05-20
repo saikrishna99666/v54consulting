@@ -17,6 +17,9 @@ use App\Http\Controllers\Admin\WhyChooseUsController;
 use App\Http\Controllers\Admin\SeoSettingController;
 use App\Http\Controllers\Admin\CareersController;
 use App\Http\Controllers\Admin\BranchController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\AppointmentController;
+
 
 Route::middleware(['web', 'auth:admin'])
     ->prefix('admin')
@@ -38,8 +41,12 @@ Route::middleware(['web', 'auth:admin'])
         Route::resource('carousel', CarouselController::class);
         Route::resource('faqs', FaqController::class)->parameters(['faqs' => 'faq']);
         Route::resource('team', TeamController::class);
+        Route::resource('testimonials', TestimonialController::class);
         Route::resource('contacts', ContactUsController::class)->only(['index', 'show', 'destroy']);
+        Route::resource('appointments', AppointmentController::class)->only(['index', 'show', 'destroy']);
+        Route::patch('/appointments/{id}/status', [AppointmentController::class, 'updateStatus'])->name('appointments.updateStatus');
         Route::resource('tickers', TickerController::class);
+
         Route::resource('careers', CareersController::class);
         Route::resource('branches', BranchController::class);
         // Newsletter Subscribers

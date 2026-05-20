@@ -368,6 +368,12 @@ return [
             'icon' => 'fas fa-fw fa-users',
             'active' => ['admin/team*'],
         ],
+        [
+            'text' => 'Testimonials',
+            'route' => 'admin.testimonials.index',
+            'icon' => 'fas fa-fw fa-comments',
+            'active' => ['admin/testimonials*'],
+        ],
 
         // Media Management
         ['header' => 'MEDIA MANAGEMENT'],
@@ -398,6 +404,13 @@ return [
             'icon' => 'fas fa-fw fa-envelope',
             'active' => ['admin/contacts*'],
         ],
+        [
+            'text' => 'Appointments',
+            'route' => 'admin.appointments.index',
+            'icon' => 'fas fa-fw fa-calendar-alt',
+            'active' => ['admin/appointments*'],
+        ],
+
         [
             'text' => 'Tickers',
             'route' => 'admin.tickers.index',

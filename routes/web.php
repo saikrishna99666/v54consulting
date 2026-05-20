@@ -42,6 +42,10 @@ Route::get('/page2', function () {
 Route::get('/page3', [App\Http\Controllers\ServiceController::class, 'home3'])->name('home3');
 
 Route::post('/subscribe', [App\Http\Controllers\SubscriberController::class, 'store'])->name('subscribe');
+Route::get('/book-appointment', [App\Http\Controllers\AppointmentController::class, 'index'])->name('appointment.index');
+Route::post('/book-appointment', [App\Http\Controllers\AppointmentController::class, 'store'])->name('appointment.store');
+
+
 
 Route::get('/pricing', function () {
     return view('pricing');
@@ -87,3 +91,13 @@ Route::post('logout', [App\Http\Controllers\AuthController::class, 'logout'])
     ->name('logout');
 
 Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index']);
+
+Route::get('/privacy-policy', function () {
+    $siteSettings = \App\Models\DynamicContent::first() ?? new \App\Models\DynamicContent();
+    return view('privacy-policy', compact('siteSettings'));
+})->name('privacy.policy');
+
+Route::get('/terms-conditions', function () {
+    $siteSettings = \App\Models\DynamicContent::first() ?? new \App\Models\DynamicContent();
+    return view('terms-conditions', compact('siteSettings'));
+})->name('terms.conditions');
